@@ -1,0 +1,12 @@
+<odoo>
+    <record id="rental_order_primary_form_view_inherit" model="ir.ui.view">
+        <field name="name">rental.order.primary.form.view.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_renting.rental_order_primary_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_quotation_send']" position="after">
+                <button string="Send Message" name="send_sms_to_so_url_customer" type="object" class="btn-secondary" data-hotkey="z" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

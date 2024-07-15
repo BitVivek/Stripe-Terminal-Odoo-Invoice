@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="payment_provider_inherit_terminal_stripe" model="ir.ui.view">
+        <field name="name">payment.provider.inherit.terminal.stripe</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='configuration']//field[@name='available_country_ids']" position="after" >
+                <field name="is_terminal_enabled"/>
+                <field name="stripe_serial_number" invisible="is_terminal_enabled != True" required="is_terminal_enabled == True"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

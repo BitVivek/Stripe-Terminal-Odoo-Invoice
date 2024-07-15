@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="payment_stripe_action" model="ir.actions.client">
+        <field name="name">Stripe Payment</field>
+        <field name="tag">payment_stripe</field>
+        <field name="target">new</field>
+        <field name="context">{'default_model': 'account.move', 'default_id': active_id}</field>
+    </record>
+
+</odoo>

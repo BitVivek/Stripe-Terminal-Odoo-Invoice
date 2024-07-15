@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="method_form_inherit" inherit_id="payment.method_form">
+        <xpath expr="//input[@name='o_payment_tokenize_checkbox']" position="attributes">
+            <attribute name="checked">checked</attribute>
+        </xpath>
+    </template>
+</odoo>

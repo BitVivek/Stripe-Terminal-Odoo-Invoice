@@ -1,0 +1,17 @@
+<odoo>
+    <record id="account_move_form_view_inherit_payment" model="ir.ui.view">
+        <field name="name">account.move.form.view.inherit.payment</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[@name='action_register_payment']" position="after" >
+                <button name="stripe_account_move.payment_stripe_action"
+                    string="Pay with Stripe"
+                    type="action"
+                    invisible="state != 'posted' or payment_state not in ('not_paid', 'partial') or move_type not in ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt')"
+                    />
+                <button string="Send Message" name="send_sms_to_inv_url_customer" type="object" class="btn-secondary" data-hotkey="z" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

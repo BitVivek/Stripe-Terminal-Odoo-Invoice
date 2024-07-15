@@ -1,0 +1,12 @@
+<odoo>
+    <record id="payment_link_wizard_form_inherit" model="ir.ui.view">
+        <field name="name">payment.link.wizard.form.inherit</field>
+        <field name="model">payment.link.wizard</field>
+        <field name="inherit_id" ref="payment.payment_link_wizard_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='link']" position="after">
+                <button string="Send Message" name="send_sms_to_customer" type="object" class="btn-primary" data-hotkey="s" />
+            </xpath>
+        </field>
+    </record>
+</odoo>

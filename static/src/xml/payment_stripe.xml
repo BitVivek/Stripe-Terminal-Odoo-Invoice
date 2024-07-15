@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+   <t t-name="stripe_account_move.StripePayment">
+    <div class="payment-container">
+        <div class="connection-status">
+            <span t-if="state.connectionStatus === 'connected'" class="text-success">Connected</span>
+            <span t-elif="state.connectionStatus === 'disconnected'" class="text-danger">Disconnected</span>
+            <span t-elif="state.connectionStatus === 'connecting'" class="text-warning">Connecting...</span>
+            <button type="button" class="btn btn-secondary btn-sm" t-on-click="connectReader" t-att-disabled="state.connectBtnDisabled">
+                Connect Reader
+            </button>
+        </div>
+        <input t-model="state.amount" type="number" placeholder="Enter amount" class="form-control" t-att-max="state.amount" />
+         <div t-if="state.paymentMethods">
+        <select t-model="state.selectedPaymentMethodId" class="form-control payment-methods">
+            <option value="">Select a payment method</option>
+            <t t-foreach="state.paymentMethods" t-as="method" t-key="method.id">
+                <option t-att-value="method.id">
+                    <t t-esc="method.name"/>
+                </option>
+            </t>
+        </select>
+        </div>
+        <button type="button" class="btn" t-on-click="send_payment_request" t-att-disabled="state.payBtnDisabled">
+            Pay with Stripe
+        </button>
+
+        <div t-if="state.message" class="text-info mt-2">
+            <span>Status: </span>
+            <span t-esc="state.message"/>
+            <br/>
+            <span t-if="state.transactionId"> Transaction ID:</span>
+            <span t-esc="state.transactionId"/>
+        </div>
+        <div>
+         <h3 class="text-center" t-if="state.hasInterac" ><strong>Intrec Transaction!</strong></h3>
+         <div class="d-flex">
+        <button type="button" class="btn btn-success rounded-pill"  style="padding:10px;" t-if="state.hasInterac" t-on-click="confirm_intrec_txn" >
+            Transaction Completed
+        </button>
+        <button type="button" class="btn btn-danger rounded-pill" style="padding:10px;" t-if="state.hasInterac" t-on-click="update_txn_value" >
+            Transaction Failed
+        </button>
+        </div>
+        </div>
+    </div>
+</t>
+</templates>

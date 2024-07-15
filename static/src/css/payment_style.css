@@ -1,0 +1,61 @@
+.payment-container {
+    max-width: 500px;
+    height: 500px;
+    margin: 25px auto 25px auto;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f7f7f7;
+    position: relative; /* Allows absolute positioning inside */
+}
+
+.payment-container input,
+.payment-container select,
+.payment-container button {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.payment-container .btn-primary {
+    background-color: #875A7B; /* Odoo primary button color */
+    color: white;
+    font-size: 18px; /* Bigger text for visibility */
+    border: none;
+}
+
+.payment-container .btn-secondary {
+    background-color: #e4e5e6; /* Odoo secondary button color */
+    color: black;
+    border: none;
+}
+
+.connection-status {
+    position: absolute;
+    top: 5px;
+    right: 35px;
+    font-size: 14px;
+}
+
+.payment-methods {
+    font-size: 14px; /* Smaller size for saved payment methods */
+    margin-top: 20px; /* Extra space from the main form */
+}
+
+.text-success, .text-danger, .text-warning {
+    font-weight: bold;
+}
+
+.text-info {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.form-check-label {
+    margin-left: 5px;
+    font-size: 16px; /* Readable font size */
+}
